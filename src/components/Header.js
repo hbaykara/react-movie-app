@@ -34,13 +34,11 @@ class Header extends Component {
                   src="https://react.semantic-ui.com/logo.png"
                 />
               </Menu.Item>
-              <Menu.Item header as={Link} to="/">
-                Movie App
+              <Menu.Item header as={Link} to="/" exact="true">Movie App</Menu.Item>
+              <Menu.Item as={NavLink} to="/movies" exact>
+                Filmler
               </Menu.Item>
-              <Menu.Item as={NavLink} to="movies">
-                Movies
-              </Menu.Item>
-              <Menu.Item as="a">Add New</Menu.Item>
+              <Menu.Item as={NavLink} to="/movies/new" exact>Yeni Ekle</Menu.Item>
             </Container>
           </Menu>
         </Visibility>

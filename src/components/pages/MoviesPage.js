@@ -17,7 +17,7 @@ class MoviesPage extends Component {
 	render() {
 		return (
 			<div className="">
-				<h2>Movies</h2>
+				<h2>Filmler</h2>
         <MoviesList movies={this.props.movies}></MoviesList>
 			</div>
 		);

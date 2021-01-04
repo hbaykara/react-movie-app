@@ -6,24 +6,23 @@ import { HashLoader } from 'react-spinners';
 
 const hashLoaderCss = {
   display: 'block',
-  margin: 'auto',
-  minHeight: '65vh'
+  margin: 'auto'
 }
 
 const MoviesList = ({ movies }) => {
   const emptyMessage = (
-    <p>There are no movies yet.</p>
+    <p>Henüz film eklenmemiş.</p>
   );
 
   const moviesList = (
     <div>
-
+{/* 
       <HashLoader 
         size={40}
         color={'#36bdb3'}
         loading={movies.fetching}
         css={hashLoaderCss}
-      />
+      /> */}
 
       {movies.error.response ? (
         <h3>Error retrieving data!</h3>
