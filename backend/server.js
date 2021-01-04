@@ -27,11 +27,9 @@ mongodb.MongoClient.connect(dbUrl, (err, db) =>  {
   }
 
   app.get('/api/movies', (req, res) => {
-    setTimeout(() => {
       db.collection('movies').find({}).toArray((err, movies) => {
         res.json({ movies });
       });
-    }, 2000)
   });
 
   app.post('/api/movies', (req, res) => {
