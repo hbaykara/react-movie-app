@@ -31,7 +31,7 @@ class Header extends Component {
               <Menu.Item>
                 <Image
                   size="mini"
-                  src="https://react.semantic-ui.com/logo.png"
+                  src="https://hakanbaykara.com/movies/movieapp.png"
                 />
               </Menu.Item>
               <Menu.Item header>Movie App</Menu.Item>

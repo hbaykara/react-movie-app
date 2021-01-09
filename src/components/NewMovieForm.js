@@ -91,7 +91,7 @@ class NewMovieForm extends Component {
             />
           </Form.Field>
           <Image className="cover-image" src={this.state.cover} size='small' />
-          <Button primary type='submit'>Gönder</Button>
+          <Button color='violet' type='submit'>Gönder</Button>
 
           {
             this.props.newMovie.error.response 

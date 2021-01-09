@@ -40,3 +40,56 @@
     transform: rotate(360deg);
   }
 }
+
+
+/* Override */
+body {
+  background-color: #141a32;
+  color: #fff;
+}
+
+.ui.menu {
+  background-color: #22326b !important;
+  border-color: #22326b !important;
+}
+
+.ui.menu .item {
+  color: #fff;
+}
+
+.ui.menu .active.item {
+  background-color: #182140;
+  color: #fff;
+}
+
+.ui.link.menu .item:hover, .ui.menu .dropdown.item:hover, .ui.menu .link.item:hover, .ui.menu a.item:hover,
+.ui.menu .active.item:hover{
+  background-color: #202b50;
+  color: #fff;
+}
+
+.ui.mini.image, .ui.mini.images .image {
+  width: 50px;
+}
+
+.ui.card, .ui.cards>.card {
+  background-color: #22326b;
+  box-shadow: 0 1px 3px 0 #22326b, 0 0 0 1px #22326b;
+}
+
+
+.ui.card>.content>.header,
+.ui.form .field>label,
+.ui.button {
+  color: #fff;
+}
+
+@media only screen and (max-width: 767px) {
+  .ui.menu>.ui.container {
+      overflow-x: auto;
+  }
+}
+
+.ui.inverted.segment, .ui.primary.inverted.segment {
+  background-color: #22326b;
+}
