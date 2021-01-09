@@ -7,14 +7,29 @@ import InlineError from './InlineError';
 class NewMovieForm extends Component {
 
   state = {
-    title: '',
-    cover: '',
+    _id: this.props.movie ? this.props.movie._id : '',
+    title: this.props.movie ? this.props.movie.title : '',
+    cover: this.props.movie ? this.props.movie.cover : '',
     errors: {},
     redirect: false
   }
 
   static propTypes = {
     onNewMovieSubmit: PropTypes.func.isRequired
+  }
+
+  componentWillReceiveProps(nextProps) {
+    const { movie } = nextProps.newMovie;
+
+    if (
+      movie.title &&
+      movie.title !== this.state.title
+    ) {
+      this.setState({
+        title : movie.title,
+        cover: movie.cover
+      })
+    }
   }
   
   handleChange = (e) => {
@@ -30,8 +45,15 @@ class NewMovieForm extends Component {
       redirect: true
     })
 
+    const _id = this.state._id || this.props.newMovie.movie._id;
+
     if(Object.keys(errors).length === 0) {
-      this.props.onNewMovieSubmit(this.state);
+      if(!_id){
+        this.props.onNewMovieSubmit(this.state);
+      }
+      else{
+        this.props.onUpdateMovieSubmit({ ...this.state, _id });
+      }
     }
   }
 
@@ -45,7 +67,7 @@ class NewMovieForm extends Component {
   render() {
     const {errors} = this.state;
     const form = (
-      <Form onSubmit={this.onSubmit} loading={this.props.newMovie.fetching}>
+      <Form onSubmit={this.onSubmit} loading={this.props.newMovie.fetching || this.props.newMovie.movie.fetching}>
           <Form.Field error={!!errors.title}>
             <label>Film Adı</label>
             { errors.title && <InlineError message={errors.title} /> }

@@ -1,27 +1,30 @@
 import React from "react";
 import { Card, Grid, Button, Icon } from "semantic-ui-react";
+import { Link } from 'react-router-dom';
 
-const extra = (
-  <div className="ui two buttons">
-    <Button animated>
+const extra = (movie, deleteMovie) => {
+ return (
+ <div className="ui two buttons">
+    <Button animated as={Link} to={`/movie/${movie._id}`}>
       <Button.Content visible>Düzenle</Button.Content>
       <Button.Content hidden>
-        <Icon name='arrow right' />
+        <Icon name="arrow right" />
       </Button.Content>
     </Button>
-    <Button animated='vertical'>
+    <Button animated="vertical" onClick={() => deleteMovie(movie._id)}>
       <Button.Content hidden>Sil</Button.Content>
       <Button.Content visible>
-        <Icon name='trash' />
+        <Icon name="trash" />
       </Button.Content>
     </Button>
   </div>
-);
+ );
+};
 
-const MovieCard = ({ movie }) => (
+const MovieCard = ({ movie, deleteMovie }) => (
   <Grid.Column>
     <Card>
-      <Card image={movie.cover} header={movie.title} extra={extra}/>
+      <Card image={movie.cover} header={movie.title} extra={extra(movie, deleteMovie)}/>
     </Card>
   </Grid.Column>
 );

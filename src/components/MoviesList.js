@@ -9,14 +9,14 @@ const hashLoaderCss = {
   margin: 'auto'
 }
 
-const MoviesList = ({ movies }) => {
+const MoviesList = ({ movies, deleteMovie }) => {
   const emptyMessage = (
     <p>Henüz film eklenmemiş.</p>
   );
 
-  const moviesList = (
+const moviesList = (
     <div>
-{/* 
+      {/* 
       <HashLoader 
         size={40}
         color={'#36bdb3'}
@@ -28,8 +28,11 @@ const MoviesList = ({ movies }) => {
         <h3>Error retrieving data!</h3>
       ) : (
         <Grid stackable columns={3}>
-          {movies.movies.map((movie) => (
-            <MovieCard key={movie._id} movie={movie} />
+          {movies.movieList.map((movie) => (
+            <MovieCard 
+            key={movie._id}
+            deleteMovie = {deleteMovie}
+            movie={movie} />
           ))}
         </Grid>
       )}
@@ -45,7 +48,7 @@ const MoviesList = ({ movies }) => {
 
 MoviesList.propTypes = {
   movies : PropTypes.shape({ 
-    movies : PropTypes.array.isRequired
+    movieList : PropTypes.array.isRequired
   }).isRequired
 };
 
